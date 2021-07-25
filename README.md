@@ -107,4 +107,10 @@ Loads the map from file
 ***Map:print()***
 Returns a list of lines which render the current map around your position.
 
+## The Area Object
+
+Documentation still needed. Look at source for reference
+
 ## The Room Object
+
+Documentation still needed. Look at source for reference
