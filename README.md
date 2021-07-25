@@ -88,8 +88,8 @@ exit.
 ***Map:save(path, [suffix])***
 Saves the map to file. The filename is generated based on the map name.
 
-`path`      The path to save to (eg. `/home/user/maps/`)
-`suffix`    An optional suffix to add to the file name (eg. a date string for versioning)
+- `path`      The path to save to (eg. `/home/user/maps/`)
+- `suffix`    An optional suffix to add to the file name (eg. a date string for versioning)
 
 ```lua
 local map = Map.create("mymud")
@@ -101,8 +101,8 @@ map:save(
 ***Map:load(path, [suffix])***
 Loads the map from file
 
-`path`      The path to load from (eg. `/home/user/maps/`)
-`suffix`    An optional suffix to add to the file name (eg. a date string for versioning)
+- `path`      The path to load from (eg. `/home/user/maps/`)
+- `suffix`    An optional suffix to add to the file name (eg. a date string for versioning)
 
 ***Map:print()***
 Returns a list of lines which render the current map around your position.
