@@ -8,6 +8,14 @@ local info = Util.info
 local Map = {}
 Map.__index = Map
 
+local function expand_tilde(path)
+	if path:find("^~") ~= nil then
+		return format("%s%s", os.getenv("HOME"), path:sub(2))
+	else
+		return path
+	end
+end
+
 function Map.new(name)
 	local ret = setmetatable({}, Map)
 
@@ -137,6 +145,7 @@ function Map:save(path, suffix)
 		local area_count = table_len(self.areas)
 		local obj = {}
 		local data_to_save = false
+		path = expand_tilde(path)
 		local fname = format("%s.map_%s%s.lua", path, self.name, suffix)
 		info("MAP", format("Saving to '%s'", fname))
 		if area_count > 10 then
@@ -165,6 +174,7 @@ end
 function Map:load(path, suffix)
 	self.areas = {}
 	suffix = suffix or ""
+	path = expand_tilde(path)
 	local fname = format("%s.map_%s%s.lua", path, self.name, suffix)
 	info("MAP", format("Loading from '%s'", fname))
 	local ok, obj = false, {}
